@@ -17,4 +17,4 @@
 - Figma. 
 - Publicar y usar git / github. <br> 
 
-Resultado click en este [link](https://juanpedro-dev.github.io/Encriptador-Alura-Challenge/)
+Resultado click en este [link](https://juanpedro-dev.github.io/Ahorcado_Alura/)
