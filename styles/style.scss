@@ -1,0 +1,42 @@
+// Importo botones 
+@import "btn";
+@import "variables";
+@import "cuaderno";
+
+// Globales 
+
+img{
+    max-width: 100%;
+}
+.body{
+    background-color: $color--gray;
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 1fr;
+    grid-template-rows: 10vh 1fr 10vh;
+    grid-template-areas: 
+                    "header"
+                    "main"
+                    "footer";
+}
+
+
+.header{
+    grid-area: header;
+    height: 10%;
+    padding: 2rem 0 0 2rem;
+    user-select: none;
+}
+
+.main{
+    grid-area: main;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer{
+    grid-area: footer;
+}

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/Normalize.css">
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="shortcut icon" href="./img/favicon.png">
+    
+    <title>Juego Ahorcado</title>
+</head>
+<body class="body">
+    <header class="header">
+        <a href="./index.html"><img src="./img/Vector.png" alt="logo Alura"></a> 
+    </header>
+    <main class="main">
+        <canvas width="300" height="400"></canvas>
+        <section class="key-try">los _</section>
+        <section class="btn-game">botones</section>
+    </main>
+    <footer class="footer">
+        <blockquote> Created by Juan Pedro </blockquote>
+    </footer>
+</body>
+<script>
+
+    // Dibujando una hoja con canvas
+    let pantalla = document.querySelector("canvas");
+    let pincel = pantalla.getContext("2d");    
+    pincel.fillStyle = "#ddd";
+    pincel.fillRect(0,0,300,400); 
+
+    pincel.fillStyle = "#aaa";
+    pincel.beginPath();
+    pincel.arc(25, 30, 6, 0, 2*3.14);
+    pincel.fill();
+    pincel.beginPath();
+    pincel.arc(25, 200, 6, 0, 2*3.14);
+    pincel.fill();
+    pincel.beginPath();
+    pincel.arc(25, 370, 6, 0, 2*3.14);
+    pincel.fill();
+    
+    pincel.fillStyle = "red";
+    pincel.beginPath();
+    pincel.fillRect(50,0,1,400); 
+
+    for(let i=40; i<400; i+=20){
+        pincel.fillStyle = "#000";
+        pincel.fillRect(0,i,300,1); 
+    }
+    // Fin dibujo hoja... 
+
+
+    // Dibujando el hombre - cada error una parte nueva. 
+    
+    
+    // Error 1
+    pincel.strokeStyle = "blue"; 
+    pincel.lineWidth = 2;
+    pincel.moveTo(82,290);
+    pincel.lineTo(50,320);
+    pincel.stroke();
+
+    pincel.moveTo(80,290);
+    pincel.lineTo(110,320);
+    pincel.stroke();
+
+    // Error 2
+    pincel.fillStyle = "blue"
+    pincel.fillRect(80,90,2,200); 
+
+    // Error 3
+    pincel.fillStyle = "blue"
+    pincel.fillRect(80,90,100,2); 
+
+    // Error 4
+    pincel.fillStyle = "blue"
+    pincel.fillRect(180,90,2,50); 
+
+    // Error 5
+    pincel.beginPath();
+    pincel.arc(182, 140, 10, 0, 2*3.14);
+    pincel.fill();
+
+    // Error 6
+    pincel.fillStyle = "blue"
+    pincel.fillRect(180,90,2,50); 
+
+
+</script>
+</html>
