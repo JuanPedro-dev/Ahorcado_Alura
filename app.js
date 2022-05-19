@@ -24,14 +24,12 @@ for(let i=40; i<400; i+=20){
     pincel.fillRect(0,i,300,1); 
 }
 
-pincel.font = "15px Comic Sans MS";
-pincel.strokeText("Juan Pedro", 60, 40);
-pincel.strokeText("Alura", 250, 40);
+pincel.font = "600 15px Comic Sans MS";
+pincel.fillText("Juan Pedro", 60, 40);
+pincel.fillText("Alura", 250, 40);
+pincel.fillText("Usadas", 230, 80);
+
 // Fin dibujo hoja... 
-
-
-// Dibujando el hombre - cada error una parte nueva. 
-
 
 
 // creo el conjunto de palabras.
@@ -40,18 +38,20 @@ const arrayPalabras = ["HTML", "JavaScript", "arreglos", "css", "challenge" ];
 // arreglo con las letras ingresadas
 const letrasMalas = [];
 
-
 // Las paso a minuscula. 
 const palabras = [];
 arrayPalabras.forEach(palabra => palabras.push(palabra.toLowerCase())); 
 
 // Genero una palabra random entre las que estan. 
-const randomPalabra = arrayPalabras[Math.floor(Math.random() * arrayPalabras.length)]; 
+const elegirPalabra = arrayPalabras[Math.floor(Math.random() * arrayPalabras.length)]; 
+const randomPalabra = elegirPalabra.toLowerCase(); 
 
-pincel.font = "30px Arial";
+
+console.log("Palabra ahorcado: ", randomPalabra);
 
 // Dibujo la cantidad de lugares según el largo de la palabra
 for(let i = 0; i <randomPalabra.length; i++){
+    pincel.strokeStyle = "blue"; 
     let espacios = i*30 + 60;
     if (i < 8 ){
         pincel.strokeText("_", espacios, 320); 
@@ -60,34 +60,10 @@ for(let i = 0; i <randomPalabra.length; i++){
         pincel.strokeText("_", espacios, 360); 
     }
 }
-let contador = 0;
 
-// Event Listener teclado 
-window.addEventListener("keydown",(event)=>{
-    let letraInput = event.key.toLocaleLowerCase();
-    let acerto = false;
-    for(let i=0; i < randomPalabra.length; i++){
-        if(letraInput == randomPalabra[i]){
-            encontro = true;
-            let espacios = i*30 + 60;
-            if (i < 8 ){
-                pincel.strokeText(letraInput, espacios, 310); 
-            } else{
-                espacios = (i-8)*30 + 60;
-                pincel.strokeText(letraInput, espacios, 350); 
-            }
-        }
-    } 
-    if(!acerto){
-        contador++; 
-        dibujar();
-    }
-
-})
-
-function dibujar(){
+function dibujarAhorcado(cantidadErrores){
         
-    switch(contador){
+    switch(cantidadErrores){
         case 1: 
             // Error 1 - pie del poste
             pincel.strokeStyle = "blue"; 
@@ -149,5 +125,45 @@ function dibujar(){
             pincel.moveTo(182,150);
             pincel.lineTo(160,170);
             pincel.stroke();
+
     }   
 }
+
+let contador = 0;
+
+// Event Listener teclado 
+window.addEventListener("keydown",(event)=>{
+    let letraInput = event.key.toLocaleLowerCase();
+    let acerto = false;
+    pincel.fillStyle = "blue";
+    pincel.font = "30px Arial";
+    for(let i=0; i < randomPalabra.length; i++){
+        if(letraInput == randomPalabra[i]){
+            acerto = true;
+            
+            let espacios = i*30 + 60;
+
+            if (i < 8 ){
+                pincel.fillText(letraInput, espacios, 315); 
+            } else{
+                espacios = (i-8)*30 + 60;
+                pincel.fillText(letraInput, espacios, 355); 
+            }
+        }
+        
+    } 
+    // Agrego a usadas (max 10) si no acierta y verifico que no la ingreso previamente
+    if(!acerto && !letrasMalas.includes(letraInput) && letrasMalas.length < 10){
+        letrasMalas.push(letraInput);
+        contador++; 
+        dibujarAhorcado(contador);
+        // La dibujo en la hoja
+        pincel.font = "20px Arial";
+        pincel.fillText(letraInput, 240, 80+(contador*20));
+    }
+})
+
+// falta cartel si pierdo o gano 
+// tomar solo letras
+// tomar desde el celu
+// agregar palabras... 
