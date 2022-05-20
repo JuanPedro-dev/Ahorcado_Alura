@@ -4,6 +4,10 @@
 @import "cuaderno";
 
 // Globales 
+a, a:link, a:visited, a:active, a:hover{
+    text-decoration: none;
+    color: inherit;
+}
 
 img{
     max-width: 100%;
@@ -42,19 +46,58 @@ img{
 
 /// Pagina game
 
-.header-game{
+.header{
+    display: flex;
+    align-items: center;
     height: 10%;
     padding: 2rem 0 1rem 2rem;
     user-select: none;
-}
 
+}
+.myPage{
+    color: $color--darkBlue;
+    margin: 0;
+    margin-left: 1rem;
+    font-size: 2.5rem;
+    color:$color--darkBlue;
+    height: 100%;
+} 
 .main-game{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
+.botones-game{
+    display: flex;
+}
 
-.cuaderno{
-  
+.btn--game{
+    display: block;
+    margin: 1rem;
+    font-weight: 600;
+    font-size: .8rem;
+    border-radius: 1rem;
+    width: 10rem;
+    height: 2.5rem;
+    border: none;
+    &:hover {
+        transition: all .3s ease-in-out;
+        transform: scale(1.05);
+        }       
+    &:active {
+        transition: all .3s ease-in-out;
+        transform: scale(0.8);
+       }
+
+}
+.btn__nuevoJuego{
+    background-color: $color--darkBlue;
+    color: #D8DFE8;
+}
+
+.btn__desistir{
+    background-color: #D8DFE8;
+    color: $color--darkBlue;
+    border: 1px solid $color--darkBlue;
 }

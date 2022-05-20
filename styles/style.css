@@ -101,6 +101,11 @@
   min-width: 300px;
 }
 
+a, a:link, a:visited, a:active, a:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
 img {
   max-width: 100%;
 }
@@ -153,13 +158,28 @@ img {
   grid-area: footer;
 }
 
-.header-game {
+.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   height: 10%;
   padding: 2rem 0 1rem 2rem;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+}
+
+.myPage {
+  color: #0A3871;
+  margin: 0;
+  margin-left: 1rem;
+  font-size: 2.5rem;
+  color: #0A3871;
+  height: 100%;
 }
 
 .main-game {
@@ -176,5 +196,47 @@ img {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.botones-game {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.btn--game {
+  display: block;
+  margin: 1rem;
+  font-weight: 600;
+  font-size: .8rem;
+  border-radius: 1rem;
+  width: 10rem;
+  height: 2.5rem;
+  border: none;
+}
+
+.btn--game:hover {
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
+.btn--game:active {
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
+}
+
+.btn__nuevoJuego {
+  background-color: #0A3871;
+  color: #D8DFE8;
+}
+
+.btn__desistir {
+  background-color: #D8DFE8;
+  color: #0A3871;
+  border: 1px solid #0A3871;
 }
 /*# sourceMappingURL=style.css.map */

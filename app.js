@@ -125,7 +125,10 @@ function dibujarAhorcado(cantidadErrores){
             pincel.moveTo(182,150);
             pincel.lineTo(160,170);
             pincel.stroke();
-
+        case 11:  
+            pincel.fillStyle ="red";
+            pincel.font = "600 30px Comic Sans MS";
+            pincel.fillText("Perdiste", 40, 200);
     }   
 }
 
@@ -153,7 +156,7 @@ window.addEventListener("keydown",(event)=>{
         
     } 
     // Agrego a usadas (max 10) si no acierta y verifico que no la ingreso previamente
-    if(!acerto && !letrasMalas.includes(letraInput) && letrasMalas.length < 10){
+    if(!acerto && !letrasMalas.includes(letraInput) && contador < 10){
         letrasMalas.push(letraInput);
         contador++; 
         dibujarAhorcado(contador);
@@ -163,7 +166,24 @@ window.addEventListener("keydown",(event)=>{
     }
 })
 
-// falta cartel si pierdo o gano 
+
+
+// botones nuevo juego y desistir
+const juegoNuevo = document.querySelector('.btn__nuevoJuego');
+
+juegoNuevo.addEventListener("click", () => {
+    location.reload();
+})
+
+const desistir = document.querySelector('.btn__desistir');
+
+desistir.addEventListener("click", ()=>{
+    for(let i=0; i<=11;i++)
+    dibujarAhorcado(i);
+    contador = 11;
+})
+
+// falta cartel123 o gano 
 // tomar solo letras
 // tomar desde el celu
 // agregar palabras... 
