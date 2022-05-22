@@ -36,6 +36,24 @@ dibujarHoja();
 // creo el conjunto de palabras.
 const arrayPalabras = ["HTML", "JavaScript", "arreglos", "css", "challenge" ]; 
 
+// le agrego las palabras que deje en el localstorage 
+let agregarStorage = localStorage.getItem("add_palabras");
+
+function obtenerLocalStorage(){
+
+    if (agregarStorage!= null){
+        let arrayStorage = agregarStorage.split(" ");
+        console.log(arrayStorage)
+        for(let i=0; i<arrayStorage.length;i++){
+            arrayPalabras.push(arrayStorage[i]);
+        }
+    }
+}
+
+obtenerLocalStorage(); 
+
+
+console.log(arrayPalabras);
 // Las paso a minuscula. 
 const palabras = [];
 arrayPalabras.forEach(palabra => palabras.push(palabra.toLowerCase())); 
@@ -132,7 +150,17 @@ function dibujarAhorcado(cantidadErrores){
         case 11:  
             pincel.fillStyle ="red";
             pincel.font = "600 30px Comic Sans MS";
-            pincel.fillText("Perdiste", 40, 200);
+            pincel.fillText("Perdiste", 130, 260);
+            for(let i=0; i<randomPalabra.length;i++){
+                let espacios = i*30 + 60;
+                if (i < 8 ){
+                    pincel.fillText(randomPalabra[i], espacios, 315); 
+                } else{
+                    espacios = (i-8)*30 + 60;
+                    pincel.fillText(randomPalabra[i], espacios, 355); 
+                }
+            }
+
     }   
 }
 
@@ -171,9 +199,9 @@ window.addEventListener("keydown",(event)=>{
                 if(letrasAcertadas.length == reduce_randomPalabra.length){ 
                     pincel.fillStyle ="green";
                     pincel.font = "600 30px Comic Sans MS";
-                    pincel.fillText("Ganaste!!!", 60, 200);
-                    alert("Felicidades has ganado!!!")
+                    pincel.fillText("Ganaste!!!", 130, 260);
                     pincel.fillStyle ="blue";
+                    contador=11;
                 }
             }
         
@@ -205,9 +233,3 @@ desistir.addEventListener("click", ()=>{
 })
 
 
-
-
-// falta cartel123 o gano 
-
-// tomar desde el celu
-// agregar palabras... 

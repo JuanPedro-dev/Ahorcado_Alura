@@ -11,6 +11,9 @@ volver.addEventListener("click", ()=>{
     window.history.back();
 })
 
+
+let stringPalabras;
+
 guardar.addEventListener("click", ()=>{
     let cadena = textInput.texto.value;
     let primerPalabra = cadena.split(" ");
@@ -19,7 +22,8 @@ guardar.addEventListener("click", ()=>{
     palabrasNuevas.push(array_emparejamientos.join(""));
     alert("Se agrego la palabra: " + array_emparejamientos.join(""))
     console.log(palabrasNuevas);
+    stringPalabras = palabrasNuevas.join(" ");
+    console.log(typeof(stringPalabras));
+    localStorage.setItem("add_palabras", stringPalabras);
 })
 
-
-export {palabrasNuevas};
