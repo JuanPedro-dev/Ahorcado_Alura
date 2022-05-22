@@ -17,7 +17,7 @@ function dibujarHoja(){
     pincel.arc(25, 370, 6, 0, 2*3.14);
     pincel.fill();
     
-    pincel.fillStyle = "red";
+    pincel.fillStyle = "#eb0c61";
     pincel.beginPath();
     pincel.fillRect(50,0,1,400); 
     
@@ -56,11 +56,11 @@ obtenerLocalStorage();
 console.log(arrayPalabras);
 // Las paso a minuscula. 
 const palabras = [];
-arrayPalabras.forEach(palabra => palabras.push(palabra.toLowerCase())); 
+arrayPalabras.forEach(palabra => palabras.push(palabra.toUpperCase())); 
 
 // Genero una palabra random entre las que estan. 
 const elegirPalabra = arrayPalabras[Math.floor(Math.random() * arrayPalabras.length)]; 
-const randomPalabra = elegirPalabra.toLowerCase(); 
+const randomPalabra = elegirPalabra.toUpperCase(); 
 const reduce_randomPalabra = [... new Set(randomPalabra)]; // saco las letras que usa la palabra (no repetidas)
 
 //console.log("Trampa Palabra Ahorcado: ", randomPalabra);
@@ -93,64 +93,58 @@ function dibujarAhorcado(cantidadErrores){
             pincel.moveTo(82,250);
             pincel.lineTo(50,270);
             pincel.stroke();
-
             pincel.moveTo(80,250);
             pincel.lineTo(110,270);
             pincel.stroke();
-            break;
-        case 2: 
-            // Error 2 - poste
+            // Poste
             pincel.fillStyle = "blue"
             pincel.fillRect(80,90,2,180); 
-            break;
-        case 3: 
-            // Error 3 - horizontal arriba cabeza
+            // horizontal arriba cabeza
             pincel.fillStyle = "blue"
             pincel.fillRect(80,90,100,2); 
-            break;
-        case 4: 
-            // Error 4 - vertical arriba cabeza
+            // vertical arriba cabeza
         pincel.fillStyle = "blue"
         pincel.fillRect(180,90,2,30); 
             break;
-        case 5: 
-        // Error 5 - cabeza
+        case 2: 
+        // Error 2 - cabeza
         pincel.beginPath();
         pincel.arc(182, 130, 12, 0, 2*3.14);
         pincel.stroke();
             break;
-        case 6: 
-        // Error 6 - cuerpo
+        case 3: 
+        // Error 3 - tronco
             pincel.fillStyle = "blue"
             pincel.fillRect(180,140,2,60); 
             break;
-        case 7: 
-            // Error 7 - pie izq
+        case 4: 
+            // Error 4 - pie izq
             pincel.moveTo(182,200);
             pincel.lineTo(160,220);
             pincel.stroke();
             break;
-        case 8: 
-            // Error 8 - pie der
+        case 5: 
+            // Error 5 - pie der
             pincel.moveTo(182,200);
             pincel.lineTo(202,220);
             pincel.stroke();
             break;
-        case 9: 
-            // Error 9 -  Brazos der
+        case 6: 
+            // Error 6 -Brazos izq
+            pincel.moveTo(182,150);
+            pincel.lineTo(160,170);
+            pincel.stroke();
+            break;
+        case 7: 
+            // Error 7 -  Brazos der
             pincel.moveTo(182,150);
             pincel.lineTo(202,170);
             pincel.stroke();
             break;
-        case 10: 
-            // Error 10 -Brazos izq
-            pincel.moveTo(182,150);
-            pincel.lineTo(160,170);
-            pincel.stroke();
-        case 11:  
-            pincel.fillStyle ="red";
-            pincel.font = "600 30px Comic Sans MS";
-            pincel.fillText("Perdiste", 130, 260);
+        case 8:  
+            pincel.fillStyle ="#eb0c61";
+            pincel.font = "400 30px Comic Sans MS";
+            pincel.fillText("Fin del juego", 100, 260);
             for(let i=0; i<randomPalabra.length;i++){
                 let espacios = i*30 + 60;
                 if (i < 8 ){
@@ -160,7 +154,6 @@ function dibujarAhorcado(cantidadErrores){
                     pincel.fillText(randomPalabra[i], espacios, 355); 
                 }
             }
-
     }   
 }
 
@@ -169,8 +162,8 @@ const letrasAcertadas = [];
 // Event Listener teclado 
 window.addEventListener("keydown",(event)=>{
 
-    let permitidos= ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','ñ','o','p','q','r','s','t','u','v','w','x','y','z'];
-    let letraInput = event.key.toLocaleLowerCase();
+    let permitidos= ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','Ñ','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+    let letraInput = event.key.toUpperCase();
 
     if(permitidos.includes(letraInput)){    // aca verifico que sea solo letras, intente con regex no lo logré. 
         
@@ -197,18 +190,19 @@ window.addEventListener("keydown",(event)=>{
                 }
                 
                 if(letrasAcertadas.length == reduce_randomPalabra.length){ 
-                    pincel.fillStyle ="green";
-                    pincel.font = "600 30px Comic Sans MS";
+                    pincel.fillStyle ="#13c713";
+                    pincel.font = "400 30px Comic Sans MS";
                     pincel.fillText("Ganaste!!!", 130, 260);
                     pincel.fillStyle ="blue";
-                    contador=11;
+                    contador=8;
                 }
+                
             }
         
         } 
 
-        // Agrego a usadas (max 10) si no acierta y verifico que no la ingreso previamente
-        if(!acerto && !letrasMalas.includes(letraInput) && contador < 10){
+        // Agrego a usadas (max 8) si no acierta y verifico que no la ingreso previamente
+        if(!acerto && !letrasMalas.includes(letraInput) && contador < 9){
             letrasMalas.push(letraInput);
             contador++; 
             dibujarAhorcado(contador);
@@ -227,9 +221,9 @@ juegoNuevo.addEventListener("click", () => {
 
 const desistir = document.querySelector('.btn__desistir');
 desistir.addEventListener("click", ()=>{
-    for(let i=0; i<=11;i++)
+    for(let i=0; i<=8;i++)
     dibujarAhorcado(i);
-    contador = 11;
+    contador = 8;
 })
 
 

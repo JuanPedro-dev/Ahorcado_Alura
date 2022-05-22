@@ -29,10 +29,11 @@ img{
     height: 10%;
     padding: 2rem 0 0 2rem;
     user-select: none;
+    color: #13c713;
 }
 
 .main{
-    grid-area: "main";
+    grid-area: main;
     height: 80%;
     display: flex;
     flex-direction: column;
@@ -42,6 +43,7 @@ img{
 
 .footer{
     grid-area: footer;
+
 }
 
 /// Pagina game

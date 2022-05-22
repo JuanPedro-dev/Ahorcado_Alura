@@ -167,10 +167,13 @@ img {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  color: #13c713;
 }
 
 .main {
-  grid-area: "main";
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: main;
   height: 80%;
   display: -webkit-box;
   display: -ms-flexbox;
