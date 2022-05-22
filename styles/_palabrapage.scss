@@ -1,0 +1,41 @@
+.title{
+    color: $color--darkBlue;
+}
+
+textarea{
+    background-color: inherit;
+    border:none;
+    display: block;
+    margin: .8rem auto;
+    width: 90%;
+    max-width: 400px;
+    height: 60vh;
+    resize: none;
+    color: $color--darkBlue;
+    padding: 1rem;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 150%;
+    user-select: none;
+    
+}
+
+.text--input{
+
+}
+.note{
+    margin: .8rem;
+    font-size: 1.2rem;
+
+}   
+.note--exclamation{
+    color: white;
+    display:inline-block ;
+    text-align: center;
+    margin: 0 0.5rem 0 1rem;
+    background-color: #67808E;
+    width: 1.3rem;
+    border-radius: 50%;
+}

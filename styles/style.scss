@@ -1,7 +1,7 @@
 // Importo botones 
 @import "btn";
 @import "variables";
-@import "cuaderno";
+@import "palabrapage";
 
 // Globales 
 a, a:link, a:visited, a:active, a:hover{
@@ -70,6 +70,8 @@ img{
 }
 .botones-game{
     display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .btn--game{
@@ -81,6 +83,8 @@ img{
     width: 10rem;
     height: 2.5rem;
     border: none;
+    flex-grow: 1;
+    flex-shrink: 1;
     &:hover {
         transition: all .3s ease-in-out;
         transform: scale(1.05);
@@ -91,12 +95,12 @@ img{
        }
 
 }
-.btn__nuevoJuego{
+.btn__nuevoJuego , .btn__guardar {
     background-color: $color--darkBlue;
     color: #D8DFE8;
 }
 
-.btn__desistir{
+.btn__desistir, .btn__volver{
     background-color: #D8DFE8;
     color: $color--darkBlue;
     border: 1px solid $color--darkBlue;

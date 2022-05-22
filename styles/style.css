@@ -95,10 +95,45 @@
   color: #fff;
 }
 
-.man {
-  background-color: #1100ff;
-  height: 400px;
-  min-width: 300px;
+.title {
+  color: #0A3871;
+}
+
+textarea {
+  background-color: inherit;
+  border: none;
+  display: block;
+  margin: .8rem auto;
+  width: 90%;
+  max-width: 400px;
+  height: 60vh;
+  resize: none;
+  color: #0A3871;
+  padding: 1rem;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 150%;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.note {
+  margin: .8rem;
+  font-size: 1.2rem;
+}
+
+.note--exclamation {
+  color: white;
+  display: inline-block;
+  text-align: center;
+  margin: 0 0.5rem 0 1rem;
+  background-color: #67808E;
+  width: 1.3rem;
+  border-radius: 50%;
 }
 
 a, a:link, a:visited, a:active, a:hover {
@@ -202,6 +237,11 @@ img {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .btn--game {
@@ -213,6 +253,11 @@ img {
   width: 10rem;
   height: 2.5rem;
   border: none;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
 }
 
 .btn--game:hover {
@@ -229,12 +274,12 @@ img {
           transform: scale(0.8);
 }
 
-.btn__nuevoJuego {
+.btn__nuevoJuego, .btn__guardar {
   background-color: #0A3871;
   color: #D8DFE8;
 }
 
-.btn__desistir {
+.btn__desistir, .btn__volver {
   background-color: #D8DFE8;
   color: #0A3871;
   border: 1px solid #0A3871;

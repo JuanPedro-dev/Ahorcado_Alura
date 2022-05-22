@@ -7,23 +7,27 @@
     <link rel="stylesheet" href="./styles/Normalize.css">
     <link rel="stylesheet" href="./styles/style.css">
     <link rel="shortcut icon" href="./img/favicon.png">
-    
+ 
+
     <title>Juego Ahorcado</title>
 </head>
-
-<body>
+<body class="body">
     <header class="header">
         <a href="./index.html"><img src="./img/Vector.png" alt="logo Alura"></a> 
         <a href="https://github.com/JuanPedro-dev" target="_blank"><h1 class = "myPage"> + Juan Pedro</h1></a>
     </header>
-    <main class="main-game">
-        <canvas class="cuaderno" width="300" height="400"></canvas>
+    <main class="main">
+
+        <h2 class="title">Ingrese la palabra aqui</h2>
+        <textarea id="texto" class="text--input" required autofocus ></textarea>
+        <div class="note"><span class="note--exclamation">!</span>Solo letras minúsculas y sin acentos</div>
         <section class="botones-game">
-            <button class ="btn--game btn__nuevoJuego"> Nuevo Juengo </button>
-            <button class ="btn--game btn__desistir"> Desistir </button>
+            <button class ="btn--game btn__guardar"> Guardar </button>
+            <button class ="btn--game btn__volver"> Volver </button>
         </section>
+
     </main>
-    <input type="text">
-    <script src="./app.js"></script>
+    <script src="./app-game.js"></script>
 </body>
+
 </html>
