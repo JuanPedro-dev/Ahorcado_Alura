@@ -31,10 +31,11 @@ function dibujarHoja(){
     pincel.fillText("Alura", 250, 40);
     pincel.fillText("Usadas", 230, 80);
 }
+
 dibujarHoja();
 
 // creo el conjunto de palabras.
-const arrayPalabras = ["HTML", "JavaScript", "arreglos", "css", "challenge" ]; 
+const arrayPalabras = ["HTML", "css", "JavaScript", "arreglo", "string", "variable", "frontend", "backend", "lenguajes", "datos", "challenge","Alura"]; 
 
 // le agrego las palabras que deje en el localstorage 
 let agregarStorage = localStorage.getItem("add_palabras");

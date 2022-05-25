@@ -194,6 +194,8 @@ img {
   -ms-grid-row: 3;
   -ms-grid-column: 1;
   grid-area: footer;
+  padding-right: 1rem;
+  text-align: end;
 }
 
 .header {
